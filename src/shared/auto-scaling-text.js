@@ -1,14 +1,13 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
+
 import styles from './auto-scaling-text.module.css'
 
-class AutoScalingText extends React.Component {
-  static propTypes = {
-    children: PropTypes.node,
-  }
-  node = React.createRef()
-  getScale() {
-    const node = this.node.current
+function AutoScalingText({children}) {
+  const nodeRef = useRef(null)
+
+  const getScale = () => {
+    const node = nodeRef.current
     if (!node) {
       return 1
     }
@@ -24,19 +23,21 @@ class AutoScalingText extends React.Component {
     return 1
   }
 
-  render() {
-    const scale = this.getScale()
+  const scale = getScale()
 
-    return (
-      <div
-        className={styles.autoScalingText}
-        style={{transform: `scale(${scale},${scale})`}}
-        ref={this.node}
-      >
-        {this.props.children}
-      </div>
-    )
-  }
+  return (
+    <div
+      className={styles.autoScalingText}
+      style={{transform: `scale(${scale},${scale})`}}
+      ref={nodeRef}
+    >
+      {children}
+    </div>
+  )
 }
 
 export default AutoScalingText
+
+AutoScalingText.propTypes = {
+  children: PropTypes.node,
+}
