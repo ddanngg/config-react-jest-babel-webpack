@@ -2,8 +2,22 @@ import {getFlyingSuperHeros} from '../super-hero'
 
 test('return supers hero', () => {
   const flyingHeros = getFlyingSuperHeros()
-  expect(flyingHeros).toEqual([
-    {name: 'A', powers: ['disintegration ray', 'fly']},
-    {name: 'B', powers: ['gravity control', 'fly']},
-  ])
+  expect(flyingHeros).toMatchInlineSnapshot(`
+    Array [
+      Object {
+        "name": "A",
+        "powers": Array [
+          "disintegration ray",
+          "fly",
+        ],
+      },
+      Object {
+        "name": "B",
+        "powers": Array [
+          "gravity control",
+          "fly",
+        ],
+      },
+    ]
+  `)
 })
