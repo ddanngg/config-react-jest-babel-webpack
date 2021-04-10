@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-
 import AutoScalingText from './auto-scaling-text'
 import {getFormattedValue} from './utils'
 
