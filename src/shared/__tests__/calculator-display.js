@@ -1,10 +1,11 @@
 import React from 'react'
 
 import {render} from 'calculator-test-utils'
+import {light} from 'themes'
 import CalculatorDisplay from '../calculator-display'
 
 test('render', () => {
-  const {container} = render(<CalculatorDisplay value="0" />)
+  const {container} = render(<CalculatorDisplay value="0" />, {theme: light})
 
   expect(container.firstChild).toMatchInlineSnapshot(`
     .emotion-0 {
@@ -14,8 +15,8 @@ test('render', () => {
       -webkit-flex: 1;
       -ms-flex: 1;
       flex: 1;
-      color: white;
-      background: #1c191c;
+      color: #1c191c;
+      background: white;
     }
 
     <div
