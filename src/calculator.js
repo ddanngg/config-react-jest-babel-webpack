@@ -1,31 +1,33 @@
 import React from 'react'
 import PointTarget from 'react-point'
-import loadable from 'react-loadable'
+// import loadable from 'react-loadable'
 import PropTypes from 'prop-types'
+
+import CalculatorDisplay from 'calculator-display'
 import styles from './calculator.module.css'
 
 // NOTE: Normally I wouldn't do this, but I wanted to include code
 // splitting in this example because it's something you have to
 // handle with Jest and many people will want to know :).
-const CalculatorDisplay = loadable({
-  loader: () => import('calculator-display').then(mod => mod.default),
-  loading: () => <div style={{height: 120}}>Loading display...</div>,
-})
+// const CalculatorDisplay = loadable({
+//   loader: () => import('calculator-display').then(mod => mod.default),
+//   loading: () => <div style={{height: 120}}>Loading display...</div>,
+// })
 
-class CalculatorKey extends React.Component {
-  static propTypes = {
-    onPress: PropTypes.func.isRequired,
-    className: PropTypes.string,
-  }
-  render() {
-    const {onPress, className = '', ...props} = this.props
+function CalculatorKey({onPress, className, ...restProps}) {
+  return (
+    <PointTarget onPoint={onPress}>
+      <button
+        className={`${styles.calculatorKey} ${className}`}
+        {...restProps}
+      />
+    </PointTarget>
+  )
+}
 
-    return (
-      <PointTarget onPoint={onPress}>
-        <button className={`${styles.calculatorKey} ${className}`} {...props} />
-      </PointTarget>
-    )
-  }
+CalculatorKey.propTypes = {
+  onPress: PropTypes.func.isRequired,
+  className: PropTypes.string,
 }
 
 const CalculatorOperations = {
