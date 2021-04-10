@@ -20,7 +20,10 @@ module.exports = {
         test: /\.module\.css$/,
         use: [
           {loader: 'style-loader'},
-          {loader: 'css-loader', options: {modules: true, camelCase: true}},
+          {
+            loader: 'css-loader',
+            options: {modules: true, localsConvention: 'camelCaseOnly'},
+          },
         ],
       },
       {
