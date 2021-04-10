@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {render} from '../../../test/calculator-test-utils'
+import {render} from 'calculator-test-utils'
 import CalculatorDisplay from '../calculator-display'
 
 test('render', () => {
