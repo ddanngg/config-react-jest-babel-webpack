@@ -5,17 +5,15 @@ import CalculatorDisplay from '../calculator-display'
 
 test('render', () => {
   const {container} = render(<CalculatorDisplay value="0" />)
-  expect(container).toMatchInlineSnapshot(`
-    <div>
+  expect(container.firstChild).toMatchInlineSnapshot(`
+    <div
+      class="css-12149uf"
+    >
       <div
-        class="css-12149uf"
+        class="autoScalingText"
+        style="transform: scale(1,1);"
       >
-        <div
-          class="autoScalingText"
-          style="transform: scale(1,1);"
-        >
-          0
-        </div>
+        0
       </div>
     </div>
   `)
