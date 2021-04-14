@@ -24,7 +24,7 @@
     ]
   },
   "keywords": [],
-  "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
+  "author": "tutorial http://kentcdodds.com/",
   "license": "GPL-3.0",
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.51",
